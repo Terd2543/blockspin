@@ -1,4 +1,4 @@
--- สคริปต์เปลี่ยน fire_rate ของปืนที่ถือ/มีทั้งหมดเป็น 700 (Min=500, Max=1000)
+-- สคริปต์เปลี่ยน fire_rate ของปืนที่ถือ/มีทั้งหมดเป็น 1000 (Min=500, Max=1000)
 -- รันครั้งเดียวก็เปลี่ยนทันที และจะคอยอัปเดตเมื่อหยิบปืนใหม่
 
 local Players = game:GetService("Players")
@@ -15,10 +15,8 @@ end
 local function setFireRate(tool)
     if tool and isGunTool(tool) then
         pcall(function()
-            tool:SetAttribute("fire_rate", 800
-                )
-            print("[+] ตั้ง fire_rate ของ " .. tool.Name .. " เป็น 800
-                    ")
+            tool:SetAttribute("fire_rate", 1000)
+            print("[+] ตั้ง fire_rate ของ " .. tool.Name .. " เป็น 1000")
         end)
     end
 end
@@ -72,7 +70,7 @@ task.spawn(function()
             for _, tool in ipairs(character:GetChildren()) do
                 if tool:IsA("Tool") and isGunTool(tool) then
                     local current = tool:GetAttribute("fire_rate")
-                    if current ~= 800 then
+                    if current ~= 1000 then
                         setFireRate(tool)
                     end
                 end
@@ -84,7 +82,7 @@ task.spawn(function()
             for _, tool in ipairs(bp:GetChildren()) do
                 if tool:IsA("Tool") and isGunTool(tool) then
                     local current = tool:GetAttribute("fire_rate")
-                    if current ~= 800 then
+                    if current ~= 1000 then
                         setFireRate(tool)
                     end
                 end
@@ -93,4 +91,4 @@ task.spawn(function()
     end
 end)
 
-print("✅ สคริปต์ทำงาน: fire_rate ของปืนทั้งหมดจะถูกตั้งเป็น 700 และคงค่านั้นไว้")
+print("✅ สคริปต์ทำงาน: fire_rate ของปืนทั้งหมดจะถูกตั้งเป็น 1000 และคงค่านั้นไว้")
